@@ -1,9 +1,12 @@
-﻿{
+{
   "name": "nexora-crm-backend",
   "version": "1.0.0",
   "description": "Enterprise Sales CRM Backend API and Real-time Socket Server",
   "main": "src/server.ts",
   "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc",

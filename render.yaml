@@ -1,11 +1,13 @@
-﻿services:
+services:
   - type: web
     name: nexora-crm
-    runtime: node
+    env: node
     plan: free
     buildCommand: npm run build
     startCommand: npm start
     envVars:
+      - key: NODE_VERSION
+        value: 22.14.0
       - key: NODE_ENV
         value: production
       - key: PORT
