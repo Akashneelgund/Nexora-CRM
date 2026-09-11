@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { io, Socket } from 'socket.io-client';
 import { useAuth } from './AuthContext';
 
@@ -15,7 +15,11 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const { user } = useAuth();
 
   useEffect(() => {
-    const newSocket = io('http://localhost:5050', {
+    const socketUrl = typeof window !== 'undefined' && window.location.port === '5174'
+      ? 'http://localhost:5050'
+      : (typeof window !== 'undefined' ? window.location.origin : '');
+
+    const newSocket = io(socketUrl, {
       transports: ['websocket', 'polling']
     });
 

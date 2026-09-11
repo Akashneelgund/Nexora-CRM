@@ -318,7 +318,7 @@ export const SettingsPage: React.FC = () => {
               <input
                 type="text"
                 readOnly
-                value="http://localhost:5050/api/meta/webhook"
+                value={`${typeof window !== 'undefined' ? window.location.origin : ''}/api/meta/webhook`}
                 className="glass-input text-xs font-mono text-slate-400"
               />
             </div>
